@@ -40,6 +40,8 @@ For 5 columns and 2 requested seats the best open seats - assuming the first row
 
 Start by a single seat request (not a group of seats together)
 
+Group seat alltment logic is also added
+
 To run the application:
 ```
 1. clone the application
