@@ -37,6 +37,13 @@ describe SeatingArrangment do
         result = arrangment.available_seats
         expect(result).to eq(["Alloted seat is b6"])
       end
+
+      it "First row is assigned so from second row b6, b7, b5 should be assigned to users, for multiple user" do
+        seating["seats"] = { "a1": {"id": "a1", "row": "a", "column": 1, "status": "U" }, "a2": {"id": "a2", "row": "a", "column": 2, "status": "U" }, "a3": {"id": "a3", "row": "a", "column": 3, "status": "U" }, "a4": {"id": "a4", "row": "a", "column": 4, "status": "U" }, "a5": {"id": "a5", "row": "a", "column": 5, "status": "U" },"a6": {"id": "a6", "row": "a", "column": 6, "status": "U" }, "a7": {"id": "a7", "row": "a", "column": 7, "status": "U" }, "a8": {"id": "a8", "row": "a", "column": 8, "status": "U" }, "a9": {"id": "a9", "row": "a", "column": 9, "status": "U" }, "a10": {"id": "a10", "row": "a", "column": 10, "status": "U" }, "a11": {"id": "a11", "row": "a", "column": 11, "status": "U" }, "a12": {"id": "a12", "row": "a", "column": 12, "status": "U" } }
+        arrangment = SeatingArrangment.new(seating.to_json, 3)
+        result = arrangment.available_seats
+        expect(result).to eq(["Alloted seat is b6", "Alloted seat is b7", "Alloted seat is b5"])
+      end
     end
   end
 end
